@@ -1,0 +1,10 @@
+/data/reference/*
+/data/outputs/FULL_sequence_100M/*
+/data/outputs/FULL_sequence_650M/*
+/data/outputs/MANE_sequence_650M/*
+**/__pycache__/
+
+!/data/reference/.gitkeep
+!/data/outputs/FULL_sequence_100M/.gitkeep
+!/data/outputs/FULL_sequence_650M/.gitkeep
+!/data/outputs/MANE_sequence_650M/.gitkeep

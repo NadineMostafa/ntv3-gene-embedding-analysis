@@ -1,0 +1,55 @@
+# ============================================================================
+# NTV3 Gene Embedding Analysis - Requirements
+# ============================================================================
+# This project performs genomic and transcript sequence embedding analysis
+# using the Nucleotide Transformer model.
+#
+# Installation:
+#   pip install -r requirements.txt
+#
+# ============================================================================
+
+# Core Scientific Stack
+# ============================================================================
+numpy>=1.24.0          # Numerical computing
+pandas>=2.0.0          # Data manipulation and analysis
+
+# Configuration & File I/O
+# ============================================================================
+pyyaml>=6.0            # YAML configuration parsing
+pyfaidx>=0.7.2.2       # FASTA/FAI file handling for genomic sequences
+
+# Visualization & Progress
+# ============================================================================
+matplotlib>=3.7.0      # Static plotting for UMAP visualizations
+tqdm>=4.65.0           # Progress bars for long-running operations
+umap-learn>=0.5.3      # Dimensionality reduction (UMAP 2D projection)
+
+# ============================================================================
+# NUCLEOTIDE TRANSFORMER - PRIMARY MODEL DEPENDENCY
+# ============================================================================
+# Clone and install from GitHub:
+#
+#   git clone https://github.com/InstaDeep/nucleotide-transformer.git
+#   cd nucleotide-transformer
+#   pip install -e .
+#
+# Or install directly:
+#   pip install git+https://github.com/InstaDeep/nucleotide-transformer.git
+#
+# The model is used for generating 650M token embeddings for sequences.
+# ============================================================================
+
+# JAX - Optional but Recommended for GPU Acceleration
+# ============================================================================
+# JAX is required for:
+#  - bfloat16 embedding decoding
+#  - Efficient computation on GPU/TPU
+#
+# Install separately to match your CUDA environment:
+#   pip install jax[cuda12_cudnn]    # For CUDA 12.x
+#   pip install jax[cuda11_cudnn]    # For CUDA 11.x
+#   pip install jax[cpu]              # CPU-only
+#
+# See: https://github.com/google/jax#installation
+# ============================================================================
