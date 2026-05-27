@@ -64,7 +64,7 @@ def resolve_paths(config_dir: Path, config: Dict) -> Dict:
         paths[section_name] = section
 
     umap_config = dict(resolved_config.get("umap", {}))
-    annotation_sources = dict(umap_config.get("annotation_sources", {}))
+    annotation_sources = dict(umap_config.get("annotation_sources") or {})
     for key, value in annotation_sources.items():
         if isinstance(value, str) and not Path(value).is_absolute():
             annotation_sources[key] = str((config_dir / value).resolve())
@@ -494,6 +494,7 @@ def main() -> None:
     config = resolve_paths(args.config.parent.resolve(), load_config(args.config))
 
     mode = str(config.get("mode", "mane"))
+    model_name = str(config.get("model_name", "unknown_model"))
     output_paths = config.get("paths", {}).get("output", {})
     embedding_config = config.get("embedding", {})
     umap_config = config.get("umap", {})
@@ -590,13 +591,13 @@ def main() -> None:
         annotation_sources=membership,
     )
 
-    coord_npy_path = output_dir / "phase6_umap_coordinates.npy"
-    coord_tsv_path = output_dir / "phase6_umap_coordinates.tsv"
-    plot_path = output_dir / "phase6_umap_scatter.png"
-    summary_path = output_dir / "phase6_umap_summary.txt"
-    metadata_path = output_dir / "annotated_genes_metadata.tsv"
-    mapping_path = output_dir / "annotated_gene_row_mapping.tsv"
-    missing_path = output_dir / "annotation_missing_genes.tsv"
+    coord_npy_path = output_dir / f"{mode}_{model_name}_{n_neighbors}_{min_dist}_umap_coordinates.npy"
+    coord_tsv_path = output_dir / f"{mode}_{model_name}_{n_neighbors}_{min_dist}_umap_coordinates.tsv"
+    plot_path = output_dir / f"{mode}_{model_name}_{n_neighbors}_{min_dist}_umap_scatter.png"
+    summary_path = output_dir / f"{mode}_{model_name}_umap_summary.txt"
+    metadata_path = output_dir / f"{mode}_{model_name}_annotated_genes_metadata.tsv"
+    mapping_path = output_dir / f"{mode}_{model_name}_annotated_gene_row_mapping.tsv"
+    missing_path = output_dir / f"{mode}_{model_name}_annotation_missing_genes.tsv"
 
     np.save(coord_npy_path, coordinates)
     projection_table.to_csv(coord_tsv_path, sep="\t", index=False)
