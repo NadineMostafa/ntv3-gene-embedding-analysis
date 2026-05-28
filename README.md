@@ -124,6 +124,36 @@ Genomic mode: Replace `mane` with `genomic` in paths above.
 - **phase6_umap_scatter.png** — Visualization scatter plot
 - **reports/** — QC metrics and extraction logs
 
+## Results
+
+### Unannotated UMAP Projections
+
+**Genomic 100M vs. Genomic 650M vs. MANE 650M**
+
+| Genomic 100M | Genomic 650M | MANE 650M |
+|--------------|--------------|-----------|
+| ![Genomic 100M UMAP](figures/genomic_NTv3_100M_pre_15_0.0_umap_scatter.png) | ![Genomic 650M UMAP](figures/genomic_NTv3_650M_pre_15_0.0_umap_scatter.png) | ![MANE 650M UMAP](figures/mane_NTv3_650M_pre_15_0.0_umap_scatter.png) |
+
+### MYC-Related Gene Annotations
+
+Visualization of MYC-related gene sequences (and orthologs) projected onto the embedding space.
+
+**Genomic 100M vs. Genomic 650M vs. MANE 650M**
+
+| Genomic 100M | Genomic 650M | MANE 650M |
+|--------------|--------------|-----------|
+| ![MYC Genomic 100M](figures/myc_genomic_100M_15_0p0.png) | ![MYC Genomic 650M](figures/myc_genomic_650M_15_0p0.png) | ![MYC MANE 650M](figures/myc_mane_650M_15_0p0.png) |
+
+### POU-Related Gene Annotations
+
+Visualization of POU-related gene sequences (and orthologs) projected onto the embedding space.
+
+**Genomic 100M vs. Genomic 650M vs. MANE 650M**
+
+| Genomic 100M | Genomic 650M | MANE 650M |
+|--------------|--------------|-----------|
+| ![POU Genomic 100M](figures/pou_genomic_100M_15_0p0.png) | ![POU Genomic 650M](figures/pou_genomic_650M_15_0p0.png) | ![POU MANE 650M](figures/pou_mane_650M_15_0p0.png) |
+
 ## Citation
 
 Nucleotide Transformer: Dalla-Torre et al. Nature Protocols (2023)  

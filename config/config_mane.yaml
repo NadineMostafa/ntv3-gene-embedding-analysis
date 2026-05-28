@@ -35,5 +35,5 @@ umap:
   default_color: "lightgray"
   annotation_strict: false
   annotation_sources:
-    myc_list: "../data/input/myc_related_genes.txt"
+    # myc_list: "../data/input/myc_related_genes.txt"
     pou_list: "../data/input/pou_related_genes.txt"

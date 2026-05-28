@@ -1,13 +1,13 @@
 mode: genomic
-model_name: "NTv3_650M_pre" # or "NTv3_100M_pre"
+model_name: "NTv3_100M_pre" # or "NTv3_100M_pre"
 
 paths:
   output:
-    reports_dir: "../data/outputs/FULL_sequence_650M/reports"
-    embeddings_path: "../data/outputs/FULL_sequence_650M/gene_embeddings.npy"
-    ids_path: "../data/outputs/FULL_sequence_650M/gene_embeddings_ids.txt"
-    manifest_path: "../data/outputs/FULL_sequence_650M/reports/manifest_genomic.tsv"
-    extracted_sequences_path: "../data/outputs/FULL_sequence_650M/reports/genomic_sequences.fasta"
+    reports_dir: "../data/outputs/FULL_sequence_100M/reports"
+    embeddings_path: "../data/outputs/FULL_sequence_100M/gene_embeddings.npy"
+    ids_path: "../data/outputs/FULL_sequence_100M/gene_embeddings_ids.txt"
+    manifest_path: "../data/outputs/FULL_sequence_100M/reports/manifest_genomic.tsv"
+    extracted_sequences_path: "../data/outputs/FULL_sequence_100M/reports/genomic_sequences.fasta"
   input:
     gene_list_path: "../data/input/gene_list.txt"
     myc_list_path: "../data/input/myc_related_genes.txt"
@@ -17,15 +17,15 @@ paths:
     genome_path: "../data/reference/GRCh38.primary_assembly.genome.fa"
 
 embedding:
-  max_tokens_per_batch: 120_000
-  max_sequence_length: 120_000
+  max_tokens_per_batch: 320_000
+  max_sequence_length: 320_000
   sequence_id_column: "gene_id"
   length_column: "sequence_length_bp"
   use_bfloat16: true
   debug: true
 
 umap:
-  output_dir: "../data/outputs/FULL_sequence_650M/umap_output"
+  output_dir: "../data/outputs/FULL_sequence_100M/umap_output"
   n_neighbors: 15
   min_dist: 0.0
   n_components: 2
@@ -35,5 +35,6 @@ umap:
   default_color: "lightgray"
   annotation_strict: false
   annotation_sources:
-
+    myc_list: "../data/input/myc_related_genes.txt"
+    pou_list: "../data/input/pou_related_genes.txt"
 
